@@ -1,0 +1,11 @@
+{"predictions": [{"image_id": 0, "caption": "a man is running", "svo": "someone running someone"}, 
+    {"image_id": 1, "caption": "a man is putting a box", "svo": "someone playing someone"}, 
+    {"image_id": 2, "caption": "a man is playing", "svo": "someone running someone"}, 
+    {"image_id": 3, "caption": "a woman is doing a rope", "svo": "man running man"}, 
+    {"image_id": 4, "caption": "a man is running", "svo": "someone running someone"}, 
+    {"image_id": 5, "caption": "a man is running", "svo": "someone running someone"}, 
+    {"image_id": 6, "caption": "a man is running", "svo": "someone running someone"}, 
+    {"image_id": 7, "caption": "a woman is using a <unk>", "svo": "someone playing someone"}, 
+    {"image_id": 8, "caption": "a man is running", "svo": "someone running someone"}, 
+    {"image_id": 9, "caption": "a woman is playing a bag", "svo": "someone peeling someone"}, 
+    {"image_id": 10, "caption": "a man is running", "svo": "someone running someone"}], "scores": {"Loss": -0.0}}

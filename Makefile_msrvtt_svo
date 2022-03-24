@@ -11,7 +11,7 @@ MSRVTT2017_DIR=$(IN_DIR)/msrvtt2017
 YT2T_DIR=$(IN_DIR)/yt2t
 
 SPLITS=train val test
-DATASETS=msrvtt# yt2t msrvtt2017 tvvtt
+DATASETS=mrsvtt #msrvtt yt2t msrvtt2017 tvvtt
 
 WORD_COUNT_THRESHOLD?=3  # in output/metadata this threshold was 0; was 3 in output/metadata2017
 MAX_SEQ_LEN?=30          # in output/metadata seqlen was 20; was 30 in output/metadata2017
@@ -100,15 +100,25 @@ TRAIN_OPT=--beam_size $(BEAM_SIZE) --labda $(LAMBDA) --rnn_type $(RNN_TYPE) --in
 	--model_file $@ --start_from $(START_FROM) --result_file $(basename $@)_test.json \
 	2>&1 | tee $(basename $@).log
 
+# TEST_OPT=--beam_size $(BEAM_SIZE) \
+# 	--rnn_type $(RNN_TYPE) \
+# 	--input_encoding_size $(INPUT_ENCODING_SIZE) \
+# 	--language_eval $(VAL_LANG_EVAL) \
+# 	--test_seq_per_img $(TEST_SEQ_PER_IMG) \
+# 	--test_batch_size $(BATCH_SIZE) \
+# 	--loglevel $(LOGLEVEL) \
+# 	--result_file $@
+
 TEST_OPT=--beam_size $(BEAM_SIZE) \
 	--rnn_type $(RNN_TYPE) \
 	--input_encoding_size $(INPUT_ENCODING_SIZE) \
 	--language_eval $(VAL_LANG_EVAL) \
 	--test_seq_per_img $(TEST_SEQ_PER_IMG) \
-	--test_batch_size $(BATCH_SIZE) \
+	--test_batch_size 8 \
 	--loglevel $(LOGLEVEL) \
 	--result_file $@
-
+# Test opt 
+# make -f Makefile_msrvtt_svo test GID=0 EXP_NAME=xe FEATS="irv2 c3d category" BFEATS="roi_feat roi_box" USE_RL=0 CST=0 USE_MIXER=0 SCB_CAPTIONS=0 LOGLEVEL=DEBUG LAMBDA=20
 train: $(MODEL_DIR)/$(EXP_NAME)/$(subst $(space),$(noop),$(FEATS))_$(TRAIN_ID).pth
 $(MODEL_DIR)/$(EXP_NAME)/$(subst $(space),$(noop),$(FEATS))_$(TRAIN_ID).pth: \
 	$(META_DIR)/$(TRAIN_DATASET)_$(TRAIN_SPLIT)_sequencelabel.h5 \
@@ -138,7 +148,7 @@ $(MODEL_DIR)/$(EXP_NAME)/$(subst $(space),$(noop),$(FEATS))_$(TRAIN_ID).pth: \
 		--bfeat_h5 $(patsubst %,$(FEAT_DIR)/$(TRAIN_DATASET)_%.h5,$(BFEATS)) \
 		--fr_size_h5 $(FEAT_DIR)/$(TRAIN_DATASET)_fr_size.h5 \
 		$(TRAIN_OPT)
-
+# make -f Makefile_msrvtt_svo test GID=0 EXP_NAME=xe FEATS="irv2 c3d category" BFEATS="roi_feat roi_box" USE_RL=0 CST=0 USE_MIXER=0 SCB_CAPTIONS=0 LOGLEVEL=DEBUG LAMBDA=20
 test: $(MODEL_DIR)/$(EXP_NAME)/$(subst $(space),$(noop),$(FEATS))_$(TRAIN_ID)_test.json
 $(MODEL_DIR)/$(EXP_NAME)/$(subst $(space),$(noop),$(FEATS))_$(TRAIN_ID)_test.json: \
 	$(MODEL_DIR)/$(EXP_NAME)/$(subst $(space),$(noop),$(FEATS))_$(TRAIN_ID).pth \

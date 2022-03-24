@@ -43,6 +43,8 @@ class DataLoader():
 
 		# load the json file which contains additional information about the
 		# dataset
+
+		# get the irv2 / c3d feature here
 		feat_h5_files = opt['feat_h5']
 		logger.info('DataLoader loading h5 files: %s', feat_h5_files)
 		self.feat_h5 = []
@@ -53,7 +55,7 @@ class DataLoader():
 
 		self.num_feats = len(feat_h5_files)
 
-		# load the h5 file which contains of regional features
+		# load the h5 file which contains of regional features # roi
 		bfeat_h5_files = opt['bfeat_h5']
 		logger.info('DataLoader loading bh5 files: %s', bfeat_h5_files)
 		self.bfeat_h5 = []
@@ -82,6 +84,7 @@ class DataLoader():
 			
 		else:
 			self.has_label = False
+			self.seq_length = 30 # nothing else was here -> fixed
 
 		if self.bcmrscores_pkl is not None:
 			eval_metric = opt.get('eval_metric', 'CIDEr')

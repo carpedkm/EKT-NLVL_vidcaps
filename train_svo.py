@@ -25,6 +25,7 @@ import opts_svo as opts
 import sys
 
 sys.path.append('coco-caption')
+sys.path.append('pyciderevalcap')
 from pycocoevalcap.bleu.bleu import Bleu
 from pycocoevalcap.meteor.meteor import Meteor
 from pycocoevalcap.rouge.rouge import Rouge
@@ -351,7 +352,8 @@ def validate(model, criterion, loader, opt):
             loss_sum += loss.item()
             del pred, gt_seq, gt_logseq
             torch.cuda.empty_cache()
-
+        # labels_svo referenced before assignment
+        labels_svo = ''
         seq, logseq, _, seq_svo = model.sample(feats, bfeats, labels_svo, {'beam_size': opt.beam_size})
         sents = utils.decode_sequence(opt.vocab, seq)
         sents_svo = utils.decode_sequence(opt.vocab, seq_svo)		
@@ -367,7 +369,9 @@ def validate(model, criterion, loader, opt):
             predictions.append(entry)
             logger.debug('[%d] video %s: %s' %
                          (jj, entry['image_id'], entry['caption']))
-        del feats, labels, masks, labels_svo, seq, logseq
+        # labels/masks is only returned when 'has_label' is True for dataloader_svo.py (DataLoader)
+        # del feats, labels, masks, labels_svo, seq, logseq
+        del feats, labels_svo, seq, logseq
         torch.cuda.empty_cache()
     loss = round(loss_sum / num_iters, 3)
     results = {}

@@ -44,7 +44,7 @@ if __name__ == '__main__':
                 'num_chunks': opt.num_chunks,
                 'mode': 'test'
                 }
-
+    # opts in need : test_opt + opt.model_file + use opt from checkpoint
     test_loader = DataLoader(test_opt)
 
     logger.info('Loading model: %s', opt.model_file)
@@ -60,7 +60,7 @@ if __name__ == '__main__':
 
     assert opt.vocab_size == test_loader.get_vocab_size()
     assert opt.seq_length == test_loader.get_seq_length()
-    assert opt.feat_dims == test_loader.get_feat_dims()
+    # assert opt.feat_dims == test_loader.get_feat_dims()
     assert opt.bfeat_dims == test_loader.get_bfeat_dims()
 
     logger.info('Building model...')
