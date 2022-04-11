@@ -12,10 +12,10 @@
             "console": "integratedTerminal",
             "args": [
                 "--model_file", "/saat/output/model_svo/xe/resnetc3d_yt2t_concat_CIDEr_8_0.0001_12.pth",
-                "--test_label_h5", "saat/tmp_to_check/temp_charades_sequencelabel.h5",
-                "--test_feat_h5", "/saat/tmp_to_check/charades_temp_c3d_temp_msvd.h5","/saat/tmp_to_check/charades_temp_irv2_temp_msvd.h5",
-                "--bfeat_h5", "/saat/Charades_for_SAAT/roi_feat_temp/roi_box.h5", "/saat/Charades_for_SAAT/roi_feat_temp/roi_feats.h5",
-                "--fr_size_h5", "/saat/tmp_to_check/charades_temp_fr_size.h5",
+                "--test_label_h5", "/saat/gtboundary_charades_h5py/temp_charades_sequencelabel.h5",
+                "--test_feat_h5", "/saat/gtboundary_charades_h5py/charades_temp_c3d.h5","/saat/gtboundary_charades_h5py/charades_temp_irv2.h5",
+                "--bfeat_h5", "/saat/charades_2fps_roi_feat_ext/roi_box.h5", "/saat/charades_2fps_roi_feat_ext/roi_feats.h5",
+                "--fr_size_h5", "/saat/gtboundary_charades_h5py/charades_temp_fr_size.h5",
                 "--num_chunks", "1",
                 "--test_seq_per_img", "20",
                 "--beam_size", "5",
@@ -28,7 +28,7 @@
                 "--result_file", "/saat/temp_charades_test_result.json"
             ],
             "env": {
-                "CUDA_VISIBLE_DEVICES": "7"
+                "CUDA_VISIBLE_DEVICES": "1"
             }
         },
     ]

@@ -18,3 +18,17 @@ output/
 input/
 pyciderevalcap/
 pycocoevalcap/
+
+
+./maskrcnn/*
+*.png
+*.jpg
+./code/*
+*.zip
+*.pth
+*.h5
+*.PyTorch*.pkl
+./.__pycache__/*
+.Trash-0/
+anet_frames_nas_mount/
+charades_frames_jpg_fps_2/

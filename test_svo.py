@@ -60,7 +60,7 @@ if __name__ == '__main__':
 
     assert opt.vocab_size == test_loader.get_vocab_size()
     assert opt.seq_length == test_loader.get_seq_length()
-    # assert opt.feat_dims == test_loader.get_feat_dims()
+    assert opt.feat_dims == test_loader.get_feat_dims()
     assert opt.bfeat_dims == test_loader.get_bfeat_dims()
 
     logger.info('Building model...')
