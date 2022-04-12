@@ -151,6 +151,7 @@ if __name__ == "__main__":
 	# 	if id_[:-4] in train_keys:
 	# 		namelist_to_pass.append(id_)
 	# namelist_to_pass = sorted(namelist_to_pass)
+	opt.file_path = opt.file_path + '_unsup_set_{}'.format(opt.set)
 	save_path = os.path.join(opt.file_path, 'Feature_3D_{}'.format(str(opt.set)))
 	if not os.path.exists(save_path):
 		os.makedirs(save_path)

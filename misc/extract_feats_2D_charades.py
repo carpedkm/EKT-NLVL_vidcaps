@@ -125,7 +125,7 @@ if __name__ == "__main__":
 		anno_info = json.load(f)
 	anno, train_keys = anno_info, list(anno_info.keys())
 
-
+	opt.file_path = opt.file_path + '_unsup_set_{}'.format(opt.expnum)
 	save_path = os.path.join(opt.file_path, 'Feature_2D_{}'.format(opt.expnum))
 	if not os.path.exists(save_path):
 		os.makedirs(save_path)

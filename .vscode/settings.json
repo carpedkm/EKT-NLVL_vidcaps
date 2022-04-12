@@ -1,3 +1,3 @@
 {
-    "docker.host":"ssh://vision@172.26.49.109"
+    "docker.host":"ssh://carpedkm@0.tcp.jp.ngrok.io:18824"
 }

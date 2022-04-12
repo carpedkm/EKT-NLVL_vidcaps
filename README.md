@@ -1,4 +1,14 @@
-# Syntax-Aware Action Targeting for Video Captioning
+# EKT-NLVL video captioner
+
+Used Syntax-Aware Action Targeting for Video Captioning - SAAT as video captioner
+
+Following is the information for the processing of the given dataset and input
+
+## Extracting the Features
+
+In order to extract the features, we extract it by using the dataset-specific feature extractor.
+
+### 2D Feature Extraction
 
 Code for SAAT from ["Syntax-Aware Action Targeting for Video Captioning"](http://openaccess.thecvf.com/content_CVPR_2020/papers/Zheng_Syntax-Aware_Action_Targeting_for_Video_Captioning_CVPR_2020_paper.pdf) (Accepted to CVPR 2020). The implementation is based on ["Consensus-based Sequence Training for Video Captioning"](https://github.com/mynlp/cst_captioning).
 

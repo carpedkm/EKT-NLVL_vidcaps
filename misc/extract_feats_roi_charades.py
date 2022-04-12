@@ -31,9 +31,9 @@ if __name__ == '__main__':
 	# parser.add_argument('--cnt', type=int, default=0)
 	# opt = parser.parse_args()
 	frame_path = '/saat/charades_frames_jpg_fps_2' #  /saat/Charades_for_SAAT/Charades_frames # make dir
-	feat_path = '/saat/charades_2fps_roi_feat_ext_for_unsup_boundary'# /saat/Charades_for_SAAT/roi_feat_fc # make dir
+	feat_path = '/saat/Charades_for_SAAT_unsup_set_11'# /saat/Charades_for_SAAT/roi_feat_fc # make dir
 	# anno_mapping = '/saat/charades_train_mapping_for_vid_cap_for_3d_{}.json'.format(str(opt.cnt))
-	anno_mapping = '/saat/charades_vid_cap_mapping_unsup_mnli_bartsumm/charades_train_mapping_for_vid_cap_unsup_set_10.json'
+	anno_mapping = '/saat/charades_vid_cap_mapping_unsup_mnli_bartsumm/charades_train_mapping_for_vid_cap_unsup_set_11.json'
 	# anno = process_anno.process_annotation()
 	tmp_ = []
 	# vid_names = os.listdir(frame_path)
@@ -44,8 +44,8 @@ if __name__ == '__main__':
 
 	# roi_feats_h5 = h5py.File(os.path.join(feat_path, 'roi_feats_{}.h5'.format(str(opt.cnt))), 'w')
 	# roi_box_h5 = h5py.File(os.path.join(feat_path, 'roi_box_{}.h5'.format(str(opt.cnt))), 'w')
-	roi_feats_h5 = h5py.File(os.path.join(feat_path, 'roi_feats_set_10.h5'), 'w')
-	roi_box_h5 = h5py.File(os.path.join(feat_path, 'roi_box_set_10.h5'), 'w')
+	roi_feats_h5 = h5py.File(os.path.join(feat_path, 'roi_feats_set_11.h5'), 'w')
+	roi_box_h5 = h5py.File(os.path.join(feat_path, 'roi_box_set_11.h5'), 'w')
 
 	with open(anno_mapping, 'r') as f:
 		tmp = json.load(f)
