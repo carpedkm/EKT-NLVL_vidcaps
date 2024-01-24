@@ -1,4 +1,4 @@
-# EKT-NLVL video captioner
+# EK-NLVL video captioner
 
 Used Syntax-Aware Action Targeting for Video Captioning - SAAT as video captioner
 
